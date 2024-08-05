@@ -1,0 +1,108 @@
+/* General form styling */
+form {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+/* Button styling */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Job inputs container styling */
+.job_inputs_container {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #fff;
+}
+
+/* Job name and description container styling */
+.job_name_input_container,
+.job_description_input_container {
+    margin-bottom: 10px;
+}
+
+/* Input field styling */
+input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Delete job button container styling */
+.delete_job_button_container {
+    margin-top: 10px;
+}
+
+/* Add position button container styling */
+.add_position_button_container {
+    margin-top: 10px;
+}
+
+/* Positions input container styling */
+.positions_input_container {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+
+.main_positions_container{
+    border-top: 5px solid gray;
+    margin: 10px 0px;
+}
+/* Position name and description container styling */
+.position_name_container,
+.position_description_container {
+    margin-bottom: 10px;
+}
+
+/* Delete position button container styling */
+.delete_position_button_container {
+    margin-top: 10px;
+}
+
+
+.job_main_container{
+    border-top: 5px solid red;
+}
+.error-text{
+    color: red;
+    font-size: 11px;
+    animation: erorr 0.2s;
+}
+
+@keyframes erorr {
+    from{
+        transform: translateY(-10px);
+    }
+    to{
+        transform: translateY(0px);
+    }
+}

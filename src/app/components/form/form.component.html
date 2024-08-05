@@ -1,0 +1,52 @@
+<form [formGroup]="jobForm">
+<ng-container formArrayName="jobs">
+<button (click)="addJob()">add new job</button>
+<div class="job_inputs_container">
+    <ng-container *ngFor="let job of rfs.GetJobs(jobForm).controls;let jobIndex = index" [formGroupName]="jobIndex">
+        <h2>Job {{jobIndex + 1}}</h2>
+        <div class="job_main_container">
+            <div class="job_name_input_container">
+                <input type="text" formControlName="jobName" placeholder="jobName" >
+                <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('required') && job.get('jobName')?.dirty">
+                    Job name is required
+                  </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('minlength')">
+                    Job name min length is {{ job.get('jobName')?.getError('minlength').requiredLength }}
+                  </div>
+            </div>
+            <div class="job_description_input_container">
+                <input type="text" formControlName="jobDescription" placeholder="jobDescription">
+            </div>
+            <div class="delete_job_button_container">
+                <button (click)="deleteJob(jobIndex)" [disabled]="rfs.GetJobs(jobForm).length == 1">delete job</button>
+            </div>
+    
+            <div class="add_position_button_container">
+                <button (click)="addPosition(jobIndex)">add Position</button>
+            </div>
+        </div>
+
+        <div class="positions_input_container">
+            <ng-container formArrayName="positions">
+                <ng-container *ngFor="let position of rfs.Getpositions(jobForm,jobIndex).controls;let positionIndex=index" [formGroupName]="positionIndex">
+                    <h2>Job:{{jobIndex + 1}}, position {{positionIndex + 1}}</h2>
+                    <div class="main_positions_container">
+                        <div class="position_name_container">
+                            <input type="text" formControlName="positionName" placeholder="positionName">
+                        </div>
+                        <div class="position_description_container">
+                            <input type="text" formControlName="positionDescription" placeholder="positionDescription">
+                        </div>
+    
+                        <div class="delete_position_button_container">
+                            <button (click)="deletePosition(jobIndex,positionIndex)">delete position</button>
+                        </div>
+                    </div>
+                </ng-container>
+            </ng-container>
+            </div>
+    </ng-container>
+</div>
+</ng-container>
+<button (click)="onFormSubmti()">submit form</button>
+</form>
