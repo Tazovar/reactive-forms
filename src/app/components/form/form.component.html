@@ -11,8 +11,24 @@
                     Job name is required
                   </div>
                   <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('minlength')">
-                    Job name min length is {{ job.get('jobName')?.getError('minlength').requiredLength }}
+                    Job name min length is {{ job.get('jobName')?.getError('minlength').requiredLength }} and your value is <strong>{{ job.get('jobName')?.getError('minlength').actualLength }}</strong>
                   </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('pattern')">
+                    please write number
+                  </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('email')">
+                    email syntax error
+                  </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('maxlength')">
+                    max length is {{ job.get('jobName')?.getError('maxlength').requiredLength }} and your value is <strong>{{ job.get('jobName')?.getError('maxlength').actualLength}}</strong>
+                  </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('error')">
+                   this word <strong>{{ job.get('jobName')?.getError('error').findBannedWord}}</strong> is not allowed
+                  </div>
+                  <div class="error-text" *ngIf="job.get('jobName')?.invalid && job.get('jobName')?.hasError('uniqueName')">
+                    This user <strong>{{ job.get('jobName')?.getError('uniqueName').user }}</strong> is already taken
+                  </div>
+                  
             </div>
             <div class="job_description_input_container">
                 <input type="text" formControlName="jobDescription" placeholder="jobDescription">
@@ -48,5 +64,5 @@
     </ng-container>
 </div>
 </ng-container>
-<button (click)="onFormSubmti()">submit form</button>
+<button (click)="onFormSubmti($event)">submit form</button>
 </form>

@@ -13,6 +13,7 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormComponent } from './components/form/form.component';
 import { MainComponent } from './components/main/main.component';
+import { UniqueNicknameValidator } from './components/form/user-taken-validator';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +31,7 @@ import { MainComponent } from './components/main/main.component';
     MatButtonModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDialogModule,
+    MatDialogModule,    
   ],
   providers: [
     provideAnimationsAsync()

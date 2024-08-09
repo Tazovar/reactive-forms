@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 import { ReactiveFormService } from '../../services/reactive-form.service';
 
 @Component({
@@ -32,8 +32,12 @@ deletePosition(jobIndex:number,positionIndex:number){
 }
 
 
-onFormSubmti(){
+onFormSubmti(e:any){
   console.log(this.jobForm.value);
+  let jobsArray = this.jobForm.get('jobs') as FormArray
+  console.log(jobsArray.at(0).get('jobName')?.errors)
+  
+  
   
 }
 
